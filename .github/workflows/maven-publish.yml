@@ -52,8 +52,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: read
+      contents: write
+      packages: write
 # container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
     steps:
 #       - name: Deployed
