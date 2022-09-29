@@ -54,3 +54,5 @@ jobs:
       contents: read
       packages: read
     container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+    steps:
+      - name: Deployed
