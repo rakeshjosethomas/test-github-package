@@ -59,4 +59,4 @@ jobs:
 #       - name: Deployed
 #         run: |
 #           java -jar app.jar
-      - uses: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+      - uses: docker://ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
