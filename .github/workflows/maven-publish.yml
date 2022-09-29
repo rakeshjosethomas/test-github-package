@@ -58,5 +58,4 @@ jobs:
     steps:
       - name: Deployed
         run: |
-          pwd
-          ls
+          java -jar app.jar
