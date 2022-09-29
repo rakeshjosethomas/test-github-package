@@ -54,8 +54,9 @@ jobs:
     permissions:
       contents: read
       packages: read
-    container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+# container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
     steps:
-      - name: Deployed
-        run: |
-          java -jar app.jar
+#       - name: Deployed
+#         run: |
+#           java -jar app.jar
+      - uses: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
