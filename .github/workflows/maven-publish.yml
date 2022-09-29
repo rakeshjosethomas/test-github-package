@@ -48,3 +48,9 @@ jobs:
         docker build . --tag ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
         docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
         docker push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
