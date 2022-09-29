@@ -42,3 +42,8 @@ jobs:
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+    - name: Build Docker image
+      run: | 
+        docker build . --tag ghcr.io/rakeshjosethomas/test-github-package:latest
+        docker run ghcr.io/rakeshjosethomas/test-github-package:latest
+        docker push ghcr.io/rakeshjosethomas/test-github-package:latest
