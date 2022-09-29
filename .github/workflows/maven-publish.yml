@@ -49,6 +49,7 @@ jobs:
         docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
         docker push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -56,4 +57,5 @@ jobs:
     container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
     steps:
       - name: Deployed
-        run: echo "Exit"
+        run: |
+          docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
