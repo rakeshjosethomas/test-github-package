@@ -45,6 +45,6 @@ jobs:
     - name: Build Docker image
       run: | 
         echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        docker build . --tag ghcr.io/rakeshjosethomas/test-github-package:latest
-        docker run ghcr.io/rakeshjosethomas/test-github-package:latest
-        docker push ghcr.io/rakeshjosethomas/test-github-package:latest
+        docker build . --tag ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+        docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+        docker push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
