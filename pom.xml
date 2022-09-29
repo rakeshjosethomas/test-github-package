@@ -7,14 +7,6 @@
   <version>1.0.9-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <configuration>
-    <archive>
-      <manifest>
-        <mainClass>com.apicasystems.Main</mainClass>
-      </manifest>
-    </archive>
-  </configuration>
-
   <properties>
     <maven.compiler.source>18</maven.compiler.source>
     <maven.compiler.target>18</maven.compiler.target>
@@ -23,6 +15,19 @@
 
   <build>
     <plugins>
+      <plugin>
+        <!-- Build an executable JAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.apicasystems.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
