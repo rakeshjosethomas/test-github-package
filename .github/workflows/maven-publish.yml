@@ -48,17 +48,12 @@ jobs:
         docker build . --tag ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
         docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
         docker push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
-    - name: Deploy docker container
-      uses: docker://ghcr.io/rakeshjosethomas/test-github-package:latest
-#   deploy:
-#     needs: build
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: write
-#       packages: write
-# container: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
-#     steps:
-#       - name: Deployed
-#         run: |
-#           java -jar app.jar
-#       - uses: docker://ghcr.io/rakeshjosethomas/test-github-package:latest
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Run the docker container
+        run: docker run ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
